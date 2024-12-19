@@ -1,6 +1,4 @@
-    // const [coords, setCoords] = useState<{ latitude: number, longitude: number } | null>(null);
-
-export const GeoLocation = async(): Promise<{ latitude: number, longitude: number }> => {
+export async function GeoLocation(): Promise<{ latitude: number, longitude: number }> {
     return new Promise((resolve, reject) => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
