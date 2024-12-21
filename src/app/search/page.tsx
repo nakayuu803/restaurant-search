@@ -1,14 +1,8 @@
 "use client"
 import { useEffect, useState } from "react";
-import { GeoLocation } from "../api/geoLocation";
 import { fetchSearchResults, Shop } from "../api/fetchSearchResult";
 import Link from "next/link";
 
-// interface SearchProps {
-//   searchParams: {
-//     keyword? : string
-//   }
-// }
 
 export default function SearchPage() {
   const [Keyword, setKeyword] = useState("");
@@ -16,7 +10,6 @@ export default function SearchPage() {
   const [searchResults, setSearchResults] = useState<Shop[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // const router = useRouter()
 
   const handleSearch = async() => {
     setLoading(true);
