@@ -58,7 +58,6 @@ export default function ShopDetailsPage() {
                     
                 </div>
 
-                {/* 2枚目の写真を本来の大きさで表示 */}
                 <div className="bg-white">
                 <div className="mb-6 bg-white p-6 flex justify-start">
                     <img
@@ -68,13 +67,11 @@ export default function ShopDetailsPage() {
                     />
                 </div>
 
-                <div className="flex max-w-2xl mx-auto mt-24">
-                    <div className="border-l-4 border-red-600 h-8 mr-4"></div>
-                    <p className="text-lg font-semibold">店舗の情報</p>
-                </div>
-
-                {/* その他の情報を表形式で表示 */}
-                <div className="mb-6 bg-white p-6">
+                <div className="p-6">
+                    <div className="flex justify-start mb-4">
+                        <div className="border-l-4 border-red-600 h-8 mr-4"></div>
+                        <p className="text-lg font-semibold">店舗の情報</p>
+                    </div>
                     <table className="min-w-full table-auto border-collapse border border-gray-300 ">
                         <tbody>
                             <tr className="border-b border-gray-300">
