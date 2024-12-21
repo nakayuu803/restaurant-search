@@ -1,7 +1,8 @@
 "use client"
 import { useState } from "react";
 import { GeoLocation } from "../api/geoLocation";
-import { fetchSearchResults, Shop } from "../api/searchResult";
+import { fetchSearchResults, Shop } from "../api/fetchSearchResult";
+import Link from "next/link";
 
 // interface SearchProps {
 //   searchParams: {
@@ -65,39 +66,33 @@ export default function SearchPage() {
         <div className="border-l-4 border-red-600 h-8 mr-4"></div>
         <p className="text-lg font-semibold">条件と一致した店舗</p>
       </div>
-      <div className="border-t border-gray-300 my-4"></div>
       <div className="mt-6 rounded-lg max-w-2xl mx-auto">
         {loading && <p>検索中...</p>}
         {error && <p className="text-red-500">{error}</p>}
+        
         {searchResults.map((shop) => (
-          <div
+        <Link
+          href={`/shop/${shop.id}`}
           key={shop.id}
-          className="flex p-4 mb-4 bg-white shadow-md rounded-lg max-w-2xl mx-auto"
+          className="flex p-4 mb-4 bg-white shadow-md rounded-lg max-w-2xl mx-auto hover:bg-gray-300"
         >
-          {/* 左側の画像 */}
           <img
             src={shop.logo_image}
             alt={shop.name}
             className="w-24 h-24 object-cover rounded-lg"
           />
 
-          {/* 右側のテキスト */}
           <div className="ml-4 flex-1">
             <h3 className="text-lg font-bold">{shop.name}</h3>
             <p className="text-sm text-gray-600">
               {shop.genre.name} / {shop.genre.catch}
             </p>
             <p className="text-sm text-gray-600">{shop.access}</p>
-            <a
-              href={shop.urls.pc}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-blue-500 underline"
-            >
+            <p className="text-sm text-blue-500 underline">
               店舗URL: {shop.urls.pc}
-            </a>
+            </p>
           </div>
-        </div>
+        </Link>
         ))}
       </div>
     </div>
