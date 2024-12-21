@@ -32,11 +32,11 @@ export default function ShopDetailsPage() {
     }, [id]);
 
     if (error) {
-        return <div className="p-4 bg-gray-100 text-red-500">{error}</div>;
+        return <div className="p-4 text-red-500">{error}</div>;
     }
 
     if (!shopDetails) {
-        return <div className="p-4 bg-gray-100">ロード中...</div>;
+        return <div className="p-4">ロード中...</div>;
     }
 
     return (
