@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GeoLocation } from "../api/geoLocation";
 import { fetchSearchResults, Shop } from "../api/fetchSearchResult";
 import Link from "next/link";
@@ -33,6 +33,11 @@ export default function SearchPage() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    handleSearch();
+  }, []);
+
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
       <div className="flex items-center shadow-lg rounded-lg overflow-hidden bg-white w-full max-w-2xl mt-4 mx-auto h-15">
