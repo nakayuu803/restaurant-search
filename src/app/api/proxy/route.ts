@@ -18,9 +18,9 @@ export async function GET(request: Request) {
     
     const data = await response.text();
     return new NextResponse(data, { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     return new NextResponse(
-      JSON.stringify({ error: "エラーが発生しました", details: error.message }),
+      JSON.stringify({ error: "エラーが発生しました", details: (error as Error).message }),
       { status: 500 }
       
     );

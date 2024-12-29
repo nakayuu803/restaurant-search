@@ -1,6 +1,3 @@
-// import { ShopIdProps } from "../shop/[id]/page";
-import { GeoLocation } from "./geoLocation";
-
 export interface ShopDetails {
     id: string;
     name: string;
@@ -62,7 +59,7 @@ export const fetchShopDetails = async(
       return shops.length > 0 ? shops[0] : null;
 
     }catch (error) {
-      console.error("shopDetailsのfetchに失敗したよ");
+      console.error("shopDetailsのfetchに失敗したよ", (error as Error).message);
       return null;
     }
 }

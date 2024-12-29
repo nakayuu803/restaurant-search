@@ -65,7 +65,10 @@ export default function SearchPage() {
         <p className="text-lg font-semibold">条件と一致した店舗</p>
       </div>
       <div className="mt-6 rounded-lg max-w-2xl mx-auto">
-        {loading && <p>検索中...</p>}
+        {loading && <div className="flex absolute inset-0 items-center justify-center space-x-4">
+          <div className="w-16 h-16 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
+          <div>検索中...</div>
+      </div>}
         {error && <p className="text-red-500">{error}</p>}
         
         {searchResults.map((shop) => (

@@ -36,7 +36,10 @@ export default function ShopDetailsPage() {
     }
 
     if (!shopDetails) {
-        return <div className="p-4">ロード中...</div>;
+        return <div className="flex absolute inset-0 items-center justify-center space-x-4">
+        <div className="w-16 h-16 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
+        <div>ロード中...</div>
+    </div>;
     }
 
     return (
